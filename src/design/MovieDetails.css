@@ -7,13 +7,28 @@
 
 .details img {
     width: 30%;
+    margin: 3%;
+}
+
+.details-wrapper {
+    position: relative;
 }
 
 .details {
-    padding: 2%;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.bg-image {
+    opacity: 0.2;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
 }
 
 .details-cast-w-text{
@@ -86,12 +101,18 @@
 .details-genre-list .genres {
     margin-right: .5%;
     color:#ababab;
-    
 }
 
 .details-content{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    margin-top: 1px;
+}
+
+.details-content h1{
+    margin: 0%;
+    padding: 0%;
 }
 
 .details-content .date, .duration {
@@ -105,4 +126,14 @@
     color: aliceblue;
     display: inline;
     margin-right: 1%;
+}
+
+button {
+    background-color: transparent;
+    border: 1px transparent;
+}
+
+.loader {
+    padding: 20% 40%;
+    font-size: 20px;
 }

@@ -13,7 +13,6 @@ const Watchlist = () => {
       <MovieList movies = {store.movie.watchlist} />
     </div>
     </>
-
   );
 };
 export default Watchlist;

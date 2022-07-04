@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import '../design/MovieCard.css';
-import { axiosInstance, axiosInstanceImg } from '../utils/axiosInstance';
+import { axiosInstance} from '../utils/axiosInstance';
 import { Link } from "react-router-dom";
-import MovieDetails from './MovieDetails';
-import {Route, Routes, BrowserRouter} from "react-router-dom";
 import { Key } from '../utils/axiosKey';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toggleFavorites, toggleWatchlist } from '../state/action-creator';
-import axios from 'axios';
-import { useSelector } from 'react-redux';
 
 export default function MovieCard({movie}) {
 
+    const watchlist = useSelector(({movie}) => movie.watchlist);
+    const favorites = useSelector(({movie}) => movie.favorites);
+
     const [genres, setGenres] = useState([]);
     const dispatch = useDispatch();
+
     useEffect(() => {
         async function getMovieDet() {
             try {
@@ -35,33 +35,30 @@ export default function MovieCard({movie}) {
         );
     }
 
+    const selectedWatchlist = watchlist.find((list) => list.id === movie.id);
+    const selectedFavorites = favorites.find((list) => list.id === movie.id);
+
     const url = `https://image.tmdb.org/t/p/original/${movie.poster_path}`;
     const placeholderURL = "https://cinemaone.net/images/movie_placeholder.png";
 
     function handleWatchClick() {
 
         dispatch(toggleWatchlist(movie));
-        // dispatch({
-        //     type: "TOGGLE_WATCHLIST",
-        //     payload: movie
-        // })
-        // console.log(movie);
     }
 
     function handleFavClick() {
+
         dispatch(toggleFavorites(movie));
     }
-    return (
-        
-        // <Link to={MovieDetails(movie)}>
 
+    return (
             <div className='card'>
                 <div className='upper-wrap'>
                     <div className='upper-wrap2'>
-                        <span className='badge'>{movie.vote_average}</span>
+                        <span className='badge'>{parseFloat(movie.vote_average).toFixed(1)}</span>
                         <div className='buttons'>
-                            <button className="material-symbols-outlined" onClick={() => handleWatchClick()}> movie </button>
-                            <button className="material-symbols-outlined" onClick={handleFavClick}>star</button>
+                            <button style={{color: Boolean(selectedWatchlist) ? 'rgb(103,155,241)' : ''}} className="material-symbols-outlined" onClick={handleWatchClick}> library_add </button>
+                            <button style={{color: Boolean(selectedFavorites) ? '#da2525' : ''}} className="material-symbols-outlined" onClick={handleFavClick}>favorite</button>
                         </div>
                     </div>
                 </div>
@@ -73,7 +70,5 @@ export default function MovieCard({movie}) {
                 </div>
                 </Link>
             </div>
-        
-
       );
 }

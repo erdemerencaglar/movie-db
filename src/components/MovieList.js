@@ -5,7 +5,7 @@ import MovieDetails from './MovieDetails';
 
 export default function MovieList({movies}) {
     return (
-        movies.map(movie => 
+        movies.slice(0,20).map(movie => 
             <MovieCard movie = {movie} />
         )
       );

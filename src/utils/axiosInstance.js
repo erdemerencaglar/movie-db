@@ -8,5 +8,4 @@ const axiosInstanceImg =  axios.create({
     baseURL: "https://image.tmdb.org/t/p/original/"
 });
 
-
 export { axiosInstance, axiosInstanceImg } ;

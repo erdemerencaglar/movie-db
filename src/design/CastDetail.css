@@ -1,0 +1,27 @@
+.cast-det-wrapper{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #ffc60a36;
+}
+
+.cast-det-text{
+    color: #ababab;
+    display: flex;
+    flex-direction: column;
+}
+
+.cast-det-wrapper img{
+    width: 20%;
+    padding: 2%;
+}
+
+.cast-det-text{
+    font-size: 15px;
+    font-weight: 100;
+    padding: 3%;
+}
+
+.cast-det-lower-wrapper {
+    padding: 3%;
+}

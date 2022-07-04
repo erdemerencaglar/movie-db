@@ -1,14 +1,12 @@
 const initState = {
-    watchlist: [],
-    favorites: []
+    watchlist: JSON.parse(localStorage.getItem("watchlist")) || [],
+    favorites: JSON.parse(localStorage.getItem("favorites")) || []
 }
 
 function checkWatchlistAlreadyExists(state, id) {
     let alreadyExists = false;
-    console.log("state", state);
-    console.log("id", id);
     state.watchlist.map((movie) => {
-        console.log("elemenst", movie);
+        
         if(id === movie.id) {
             alreadyExists = true;
         }
@@ -18,7 +16,6 @@ function checkWatchlistAlreadyExists(state, id) {
 
 function checkFavoritesAlreadyExists(state, id) {
     let alreadyExists = false;
-
     state.favorites.map((movie) => {
         if(id === movie.id) {
             alreadyExists = true;
@@ -28,7 +25,7 @@ function checkFavoritesAlreadyExists(state, id) {
 }
 
 const  moviesReducer = (state = initState, action) => {
-    // console.log("aciton", action);
+
     switch (action.type) {
         case "TOGGLE_WATCHLIST":
             if(!checkWatchlistAlreadyExists(state, action.payload.id)){
