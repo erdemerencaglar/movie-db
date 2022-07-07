@@ -8,7 +8,7 @@ const Watchlist = () => {
   const store = useSelector(state => state);
   return (
     <>
-    <h1>Watchlist</h1>
+    <h1 className='watchlist-title'>Watchlist</h1>
     <div  className='movieList'>
       <MovieList movies = {store.movie.watchlist} />
     </div>

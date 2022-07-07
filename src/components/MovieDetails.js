@@ -102,10 +102,10 @@ export default function MovieDetails() {
                             favorite
                             </button>
                         </div>
-                        <h1>{movie.title}</h1>
-                        <p>{movie.overview}</p>
+                        <h1 className='movie-title'>{movie.title}</h1>
+                        <p className='overview'>{movie.overview}</p>
                         <div className='details-genre-list'><p className='genres-text'>Genres:</p> {printGenres()}</div>
-                        <div className='date'><p className='rel-date-text'>Release Date:</p>{movie.release_date}</div> {/* format */}
+                        <div className='date'><p className='rel-date-text'>Release Date:</p><p className='rel-date'>{movie.release_date}</p></div> {/* format */}
                         <div className='duration'><p className='runtime-text'>Runtime:</p> {movie.runtime} minutes</div>
                     </div>
                     </div>
@@ -116,7 +116,7 @@ export default function MovieDetails() {
                         <Cast cast = {credits}></Cast>
                     </div>
                 </div>
-                <h2>If you like this movie, take a look at these</h2>
+                <h2 className='rec-title'>If you like this movie, take a look at these</h2>
                 <div className='movieList'>
                         <MovieList movies= {recommendations}/>
                 </div>

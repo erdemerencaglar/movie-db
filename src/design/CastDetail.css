@@ -19,9 +19,28 @@
 .cast-det-text{
     font-size: 15px;
     font-weight: 100;
-    padding: 3%;
+    padding: 5%;
 }
 
 .cast-det-lower-wrapper {
     padding: 3%;
+}
+
+@media screen and (max-width: 600px)  {
+    .cast-det-wrapper {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .cast-det-wrapper img{
+        width: 40%;
+        padding: 2%;
+    }
+
+    .cast-det-text {
+        align-items: center;
+        font-size: 15px;
+        text-align: center;
+    }
+    
 }

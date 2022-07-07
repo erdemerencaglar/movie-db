@@ -45,6 +45,7 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    text-align: center;
 }
 
 .details-cast div{
@@ -137,3 +138,81 @@ button {
     padding: 20% 40%;
     font-size: 20px;
 }
+
+.rec-title {
+    padding-left: 5%;
+}
+.fav-title, .watchlist-title {
+    padding-left: 3%; 
+    padding-top: 2%;
+}
+
+@media screen and (max-width: 900px)  {
+    .details-cast{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+        padding: 2%;
+        grid-auto-rows: minmax(100px, auto);
+    }
+
+    .details-cast img{
+        width: 50%;
+    }
+
+    
+}
+
+@media screen and (max-width: 700px)  {
+
+    .details {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 4%;
+    }
+
+    .details img {
+        width: 35%;
+    }
+
+    .bg-image {
+        width: 165%;
+    }
+
+    .details-content {
+        align-items: center;
+        font-size: 70%;
+        margin-top: 2%;
+    }
+
+    .details-genre-list, .duration{
+        display: none;
+    }
+
+    .rel-date-text, .rel-date, .date .rel-date-text {
+        font-size: 11px;
+        display: none;
+    }
+
+    .overview {
+        text-align: center;
+    }
+
+    .details-cast img{
+        width: 70%;
+    }
+
+    .movie-title, .overview {
+        margin: 0 15%;
+    }
+/* 
+    .details-cast{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0;
+        padding: 2%;
+        grid-auto-rows: minmax(100px, auto);
+    }
+     */
+}
+
